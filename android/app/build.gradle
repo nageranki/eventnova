@@ -1,0 +1,76 @@
+// Load local.properties
+Properties localProperties = new Properties()
+File localPropertiesFile = rootProject.file('local.properties')
+if (localPropertiesFile.exists()) {
+    localPropertiesFile.withReader('UTF-8') { reader ->
+        localProperties.load(reader)
+    }
+}
+
+// Determine Flutter SDK root: from local.properties or environment
+String flutterRoot = localProperties.getProperty('flutter.sdk') ?: System.getenv('FLUTTER_ROOT')
+if (flutterRoot == null || flutterRoot.trim().isEmpty()) {
+    throw new FileNotFoundException("Flutter SDK not found. Define 'flutter.sdk' in local.properties or set the FLUTTER_ROOT environment variable.")
+}
+
+// Version code/name: fallback to 1 if not specified
+String flutterVersionCode = localProperties.getProperty('flutter.versionCode') ?: '1'
+String flutterVersionName = localProperties.getProperty('flutter.versionName') ?: '1.0'
+
+// SDK version fallbacks: default to API 21/33 if not specified
+//String flutterMinSdk = localProperties.getProperty('flutter.minSdkVersion') ?: '24'
+//String flutterTargetSdk = localProperties.getProperty('flutter.targetSdkVersion') ?: '34'
+
+// Apply core plugins and Flutter gradle helper
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android'
+apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
+android {
+    compileSdkVersion 34
+    ndkVersion "25.1.8937393"
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+
+    defaultConfig {
+        applicationId "com.example.event_consent2"
+        minSdkVersion 24
+        targetSdkVersion 34
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.debug
+        }
+    }
+}
+
+// Flutter-specific configuration
+flutter {
+    source '../..'
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.8.22"
+    implementation platform('com.google.firebase:firebase-bom:32.0.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation "androidx.multidex:multidex:2.0.1"
+}
+
+// Google services plugin should be applied at the bottom
+

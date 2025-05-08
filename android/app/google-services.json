@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "125423921327",
+    "project_id": "eventnova-3a8f6",
+    "storage_bucket": "eventnova-3a8f6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:125423921327:android:f69defe0aa0c293478cc5a",
+        "android_client_info": {
+          "package_name": "com.example.event_consent2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBa_grSh_Gxe3tRN_vcvZgwHcPFTL-sThA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

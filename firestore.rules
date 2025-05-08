@@ -1,0 +1,32 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function signedIn() { return request.auth != null; }
+    function isAdmin() {
+      return exists(/databases/$(db)/documents/Administrator User Details/$(request.auth.uid));
+    }
+
+    // User profiles
+    match /{col}/{uid} {
+      where col in [
+        'Student User Details',
+        'Faculty User Details',
+        'Administrator User Details'
+      ]: {
+        allow create, read, update: if request.auth.uid == uid;
+        allow delete: if false;
+      }
+    }
+
+    // Lookup & events
+    match /Departments/{doc}, /Clubs/{doc}, /Venues/{doc}, /Event Request/{doc} {
+      allow read: if signedIn();
+      allow write: if isAdmin();
+    }
+
+    // Admin full access
+    match /{anyCol}/{doc} {
+      allow read, write: if isAdmin();
+    }
+  }
+}
