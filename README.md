@@ -2,7 +2,7 @@ EventNova is an Event Management mobile application developed as a part of Softw
 
 Please find the SRS (Software Requirements Specification) here: https://mahindraecolecentrale-my.sharepoint.com/:b:/g/personal/se22uari048_mahindrauniversity_edu_in/ESq1hgEY_41MgXzvgwHi4UABUUImD2e1CntZEGnGmaxezg?e=lknOA0
 
-Please find the SDS (Software Design Specification) here:
+Please find the SDS (Software Design Specification) here: https://mahindraecolecentrale-my.sharepoint.com/:b:/g/personal/se22uari048_mahindrauniversity_edu_in/ETqOoCKW-ntCgSXCIdbERxUBknnfm4pVTIe5da3LhZ2jNQ?e=yGoOPk
 
 Architecture: EventNova uses Client-Server Architecture.
 
