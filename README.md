@@ -5,3 +5,5 @@ Please find the SRS (Software Requirements Specification) here: https://mahindra
 Please find the SDS (Software Design Specification) here:
 
 Architecture: EventNova uses Client-Server Architecture.
+
+EventNova is fully deployable (ONLY on android phones) in the current version. You can download the 'app-release.apk' file to download the app onto your phone.
