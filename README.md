@@ -7,3 +7,4 @@ Please find the SDS (Software Design Specification) here: https://mahindraecolec
 Architecture: EventNova uses Client-Server Architecture.
 
 EventNova is fully deployable (ONLY on android phones) in the current version. You can download the 'app-release.apk' file to download the app onto your phone here: https://mahindraecolecentrale-my.sharepoint.com/:u:/g/personal/se22uari148_mahindrauniversity_edu_in/EbHHIVSiv2tCm2sE9Na9yE4BwVOb6JS_YTR8u4WNcua0dQ?e=YZbeB4
+(When you click on this link, you might see a warning message "Can't preview this file. Open the file or download it to view in your desktop app". Do not worry, go ahead and download the application. Since our current version of the application works only on android mobile phones, sorry for that, click on the link using an android phone ONLY.)
